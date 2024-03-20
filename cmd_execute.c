@@ -29,6 +29,11 @@ static char	*check_path(char *cmd, char **envp)
 	i = 0;
 	while (envp[i] && !ft_strnstr(envp[i], "PATH=", 5))
 		++i;
+	if (envp[i] == '\0')
+	{
+		perror("ENVP Error!\n");
+		exit(EXIT_FAILURE);
+	}
 	// + 5 to avoid "PATH="
 	paths = ft_split(envp[i] + 5, ':');
 	cmd_path = path_result(cmd, paths);
