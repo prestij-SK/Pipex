@@ -29,11 +29,8 @@ static char	*check_path(char *cmd, char **envp)
 	i = 0;
 	while (envp[i] && !ft_strnstr(envp[i], "PATH=", 5))
 		++i;
-	if (envp[i] == '\0')
-	{
-		perror("ENVP Error!\n");
-		exit(EXIT_FAILURE);
-	}
+	if (!envp[i])
+		exit_with_error("ENVP Error!\n");
 	// + 5 to avoid "PATH="
 	paths = ft_split(envp[i] + 5, ':');
 	cmd_path = path_result(cmd, paths);
@@ -52,14 +49,12 @@ void	cmd_execute(char *cmd, char **envp)
 	if (!cmd_path)
 	{
 		ft_free_split(parsed_cmd);
-		perror("Command Error!\n");
-		exit(EXIT_FAILURE);
+		exit_with_error("Command Error!\n");
 	}
 	if (execve(cmd_path, parsed_cmd, envp) == -1)
 	{
 		ft_free_split(parsed_cmd);
 		free(cmd_path);
-		perror("Execution Error!\n");
-		exit(EXIT_FAILURE);
+		exit_with_error("Execution Error!\n");
 	}
 }

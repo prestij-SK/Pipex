@@ -25,4 +25,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 */
 void	cmd_execute(char *cmd, char **envp);
 
+/*
+	utils.c
+*/
+void	exit_with_error(char *str);
+
 #endif

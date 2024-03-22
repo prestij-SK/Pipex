@@ -1,6 +1,7 @@
 SRC =	pipex.c \
 		cmd_execute.c \
 		libft_funcs.c \
+		utils.c \
 
 OBJS = $(SRC:.c=.o)
 CC = cc
