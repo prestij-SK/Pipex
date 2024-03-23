@@ -77,43 +77,43 @@ static void	child_process(char *cmd, char **envp)
 static void	child_processes(int argc, char **argv, char **envp, int i)
 {
 	pid_t	*all_pid;
-	pid_t	pid;
-	int		child_i;
-	int		status;
+	// pid_t	pid;
+	// int		child_i;
+	// int		status;
 
 	all_pid = (pid_t *)malloc(sizeof(pid_t) * (argc - 3));
 	if (!all_pid)
 		exit_with_error("Allocation Error!\n");
-	child_i = 0;
+	// child_i = 0;
 	while (i < argc - 2)
 	{
-		pid = fork();
-		if (pid == -1)
-		{
-			free(all_pid);
-			exit_with_error("Process fork Error!\n");
-		}
-		else if (pid == 0)
-		{
+		// pid = fork();
+		// if (pid == -1)
+		// {
+		// 	free(all_pid);
+		// 	exit_with_error("Process fork Error!\n");
+		// }
+		// else if (pid == 0)
+		// {
 			child_process(argv[i], envp);
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			all_pid[child_i] = pid;
-			++child_i;
-		}
+		// 	exit(EXIT_SUCCESS);
+		// }
+		// else
+		// {
+		// 	all_pid[child_i] = pid;
+		// 	++child_i;
+		// }
 		++i;
 	}
-	i = 0;
-	while (i < child_i)
-	{
-		if (waitpid(all_pid[i], &status, 0) == -1)
-			exit_with_error("Waitpid Error!\n");
-		if (status != 0)
-			exit(EXIT_FAILURE);
-		++i;
-	}
+	// i = 0;
+	// while (i < child_i)
+	// {
+	// 	if (waitpid(all_pid[i], &status, 0) == -1)
+	// 		exit_with_error("Waitpid Error!\n");
+	// 	if (status != 0)
+	// 		exit(EXIT_FAILURE);
+	// 	++i;
+	// }
 	free(all_pid);
 }
 
