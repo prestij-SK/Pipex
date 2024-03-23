@@ -10,6 +10,7 @@ int	get_descriptor(char *file_name, char c)
 {
 	int	descriptor;
 
+	descriptor = -1;
 	if (c == 'h') // for here_doc
 		descriptor = open(file_name,  O_WRONLY | O_CREAT | O_APPEND, 0777);
 	else if (c == 'o') // for OUT
