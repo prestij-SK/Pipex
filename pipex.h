@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
+#include "get_next_line.h"
 /*
 	libft_funcs.c
 */
@@ -29,5 +30,6 @@ void	cmd_execute(char *cmd, char **envp);
 	utils.c
 */
 void	exit_with_error(char *str);
+int		get_descriptor(char *file_name, char c);
 
 #endif

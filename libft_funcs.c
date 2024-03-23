@@ -10,13 +10,6 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	i;

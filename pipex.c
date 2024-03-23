@@ -58,8 +58,8 @@ static void	start_pipex(char **argv, char **envp)
 	else
 		if (pid1 != 0 && pid2 == 0)
 			second_child_process(argv, envp, fd);
-	close(fd[0]);
-	close(fd[1]);
+	if (close(fd[0]) == -1 || close(fd[1]) == -1)
+		exit_with_error("Pipe close Error!\n");
 	if (!(pid1 == 0 && pid2 == 0))
 	{
 		if (waitpid(pid1, &status, 0) == -1)
@@ -75,9 +75,9 @@ static void	start_pipex(char **argv, char **envp)
 
 int main(int argc, char **argv, char **envp)
 {
-	if (argc == 5)
+	if (argc == 5 && argv && envp)
 		start_pipex(argv, envp);
 	else
-		ft_putstr_fd("Wrong Argument Rules!\n", 2);
+		exit_with_error("Wrong Argument Rules!\n");
 	return (0);
 }
