@@ -4,7 +4,7 @@
 ### Mandatory
 Pipex is a project that re-creates in C the way two commands are piped together via | in the shell.
 Example:
-        < f1.txt cat | wc -l > f2.txt
+        < f1.txt cat | wc -l > f2.txt <
 
 The result of given example will be number of lines from f1.txt file, which will be written in f2.txt.
 The program works by calling it like:
