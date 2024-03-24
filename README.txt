@@ -28,7 +28,8 @@ Example:
         random text
         LIMITER
 
-Running this in shell will take the given input from start till given delimiter (LIMITER in this case) and after calling cat | wc -l commands will append the result in f1.txt.
+Running this in shell will take the given input from start till given delimiter (LIMITER in this case) and after calling cat | wc -l commands
+will append the result in f1.txt.
 The program works by calling it like:
         ./pipex_bonus here_doc ABUBA cat "wc -l" f1.txt
 
