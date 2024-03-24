@@ -9,6 +9,7 @@ BONUS_SRC = pipex_bonus.c \
 			utils.c \
 			get_next_line.c \
 			get_next_line_utils.c \
+			process_handler.c \
 
 OBJS = $(SRC:.c=.o)
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
@@ -23,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 
 $(OBJS): pipex.h Makefile
-$(BONUS_OBJS): pipex.h Makefile
+$(BONUS_OBJS): pipex.h get_next_line.h Makefile
 
 bonus: $(BONUS_OBJS) $(BONUS_NAME)
 

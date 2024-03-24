@@ -31,8 +31,7 @@ static char	*check_path(char *cmd, char **envp)
 		++i;
 	if (!envp[i])
 		exit_with_error("ENVP Error!\n");
-	// + 5 to avoid "PATH="
-	paths = ft_split(envp[i] + 5, ':');
+	paths = ft_split(envp[i] + 5, ':'); // + 5 to avoid "PATH="
 	cmd_path = path_result(cmd, paths);
 	ft_free_split(paths);
 	return (cmd_path);
@@ -43,7 +42,6 @@ void	cmd_execute(char *cmd, char **envp)
 	char	**parsed_cmd;
 	char	*cmd_path; // path where command + directory path are located
 
-	// write(1, cmd, ft_strlen(cmd));
 	// We seperate the real command name from it's arguments like 'wc' from 'wc -l'
 	parsed_cmd = ft_split(cmd, ' ');
 	cmd_path = check_path(parsed_cmd[0], envp);

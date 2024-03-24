@@ -10,12 +10,19 @@
 #include <fcntl.h>
 
 #include "get_next_line.h"
+
+typedef struct Vars
+{
+	int	file_in;
+	int	file_out;
+	int	arg_idnex;
+} 	PipexVars;
+
 /*
 	libft_funcs.c
 */
 size_t	ft_strlen(const char *s);
 void	ft_free_split(char **mat);
-void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -31,5 +38,11 @@ void	cmd_execute(char *cmd, char **envp);
 */
 void	exit_with_error(char *str);
 int		get_descriptor(char *file_name, char c);
+
+/*
+	process_handler.c
+*/
+void	here_doc(char *limiter, int argc);
+void	child_processes(int argc, char **argv, char **envp, PipexVars *p_vars);
 
 #endif

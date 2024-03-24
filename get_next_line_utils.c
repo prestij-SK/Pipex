@@ -15,7 +15,7 @@ size_t	strlen_alt(const char *str, const char alt)
 	return (i);
 }
 
-// Returns true of string has given (c) character
+// Returns true if string has given (c) character
 int	str_has_character(const char *str, const char c)
 {
 	if (!str)
