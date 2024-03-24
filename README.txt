@@ -1,7 +1,7 @@
-# Pipex
-## 42 School project (PIPEX)
+Pipex
+42 School project (PIPEX)
 
-### Mandatory
+---Mandatory---
 Pipex is a project that re-creates in C the way two commands are piped together via | in the shell.
 Example:
         < f1.txt cat | wc -l > f2.txt <
@@ -10,7 +10,7 @@ The result of given example will be number of lines from f1.txt file, which will
 The program works by calling it like:
         ./pipex f1.txt cat "wc -l" f2.txt
 
-### Bonus part
+---Bonus part---
 The project also has bonus part which is implementation of the same piping but with the support of multiple pipes.
 Example:
         < f1.txt cat | wc -l | cat | wc -w > f2.txt
@@ -19,7 +19,7 @@ In this example Shell will run 4 commands and place the result in f2.txt file.
 The program works by calling it like:
         ./pipex_bonus f1.txt cat "wc -l" cat "wc -w" f2.txt
 
-### Here Doc
+---Here Doc---
 The bonus part also includes Here documents (often abbreviated as "here docs"), a way to pass multiple lines of input to a command or program.
 Example:
         cat << LIMITER | wc -l >> f1.txt
